@@ -1,2 +1,1 @@
 #!/bin/bash # Change the working directory to the user's home directory cd /alu-shell/basics # Replace 'basics' with your Git username # Check if the directory change was successful if [ $? -eq 0 ]; then echo "Changed working directory to $PWD" else echo "Failed to change working directory" fi
-
