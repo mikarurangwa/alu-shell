@@ -1,2 +1,2 @@
-#!/bin/bash # Find all files ending with .gif in the current directory and all subdirectories # Use shell parameter expansion to remove the extension and print the name
-find . -type f -iname '*.gif' -exec sh -c ' for file in "$@"; do filename="${file##*/}"        # Strip directory path keeping only the base name printf "%s\n" "${filename%.gif}"  # Remove the .gif extension done ' sh {} + | LC_ALL=C sort -f
+#!/bin/bash
+find . -type f -iname '*.gif' -exec sh -c 'for gif in "$@" do echo "${gif##*/}"  cut -d '.' -f 1 done' sh {} + | LC_ALL=C sort -f
