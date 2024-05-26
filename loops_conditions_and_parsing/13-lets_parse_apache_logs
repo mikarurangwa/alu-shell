@@ -12,9 +12,11 @@ fi
 # Use awk to extract IP and HTTP status code, handle various log conditions
 awk '
 {
-  if (NF < 9) {
-    next
+  ip = $1
+  code = $9
+  # Validate IP address format
+  if (ip ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ && code ~ /^[0-9]{3}$/) {
+    print ip, code
   }
-  print $1, $9
 }
 ' "$LOG_FILE"
