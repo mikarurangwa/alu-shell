@@ -1,2 +1,2 @@
-#!/bin/bash # Print files in the current directory echo "Files in the current directory:" ls -la . echo "" # Adding a blank line for better readability # Print files in the parent directory
-echo "Files in the parent directory:" ls -la .. echo "" # Adding a blank line for better readability # Print files in the /boot directory echo "Files in the /boot directory:" ls -la /boot
+#!/bin/bash
+ls -la ~/alu-shell/basics ~/alu-shell/basics/.. /boot
