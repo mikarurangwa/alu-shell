@@ -9,6 +9,12 @@ if [[ ! -f "$LOG_FILE" ]]; then
   exit 1
 fi
 
+# Check if the log file is empty
+if [[ ! -s "$LOG_FILE" ]]; then
+  echo "Log file is empty!"
+  exit 0
+fi
+
 # Use awk to extract IP and HTTP status code, handle various log conditions
 awk '
 {
