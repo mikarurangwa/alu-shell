@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -iname '*.gif' -print  awk -F/ '{print $(NF-1) "/" $NF}'  sort -u -t/ -k1,1  cut -d/ -f2   's/\.[gG][iI][fF]$//'
+find . -type f -iname '*.gif' -exec sh -c 'printf "%s\n" "${1%.*}"' sh {} + | sort -u -f
