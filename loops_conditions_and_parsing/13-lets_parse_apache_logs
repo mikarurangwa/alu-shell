@@ -20,7 +20,7 @@ awk '
 {
   ip = $1
   code = $9
-  # Validate IP address format
+  # Validate IP address format and HTTP status code format
   if (ip ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ && code ~ /^[0-9]{3}$/) {
     print ip, code
   }
