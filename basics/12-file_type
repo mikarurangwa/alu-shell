@@ -1,2 +1,2 @@
 #!/bin/bash
-file --brief --mime-type /tmp/12-file_type file -b /tmp/12-file_type
+file -L -s /tmp/12-file_type
