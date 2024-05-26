@@ -1,2 +1,8 @@
-#!/bin/bash # Change the working directory to the user's home directory cd /alu-shell/basics # Replace 'basics' with your Git username # Check if the directory change was successful if [ $? -eq 0 ]; then echo "Changed working directory to $PWD" else echo "Failed to change working directory" fi
+#!/bin/bash
+# Script to change the directory to the user's home directory without using shell variables
 
+# Change to the home directory using the tilde (~) notation
+cd ~
+
+# Display the current working directory to confirm the change
+pwd
