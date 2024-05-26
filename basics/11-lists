@@ -1,2 +1,2 @@
 #!/bin/bash
-printf "%s\n" "." ".." "/boot" | xargs -I {} ls -la {}
+ls -la . .. /boot
