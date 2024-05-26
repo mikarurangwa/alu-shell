@@ -1,2 +1,2 @@
 #!/bin/bash
-find . .. /boot -maxdepth 0 -exec ls -la {} \
+printf "%s\n" "." ".." "/boot" | xargs -I {} ls -la {}
