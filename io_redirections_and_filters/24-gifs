@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f -name '*.gif' -execdir sh -c 'for file in "$@" do echo "${file%.gif}" done' _ {} + | sort -fu
+find . -type f -name '*.gif' | awk -F/ '{print $NF}' | sed 's/\.gif$//' | sort -f
