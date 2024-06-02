@@ -1,15 +1,5 @@
 #!/usr/bin/env bash
-# Check if the correct number of arguments is provided
-if [ $# -ne 1 ]; then
-    echo "Usage: $0 <apache_log_file>"
-    exit 1
-fi
+# Parses Apache log files in list format.
+#   Displays the IP and HTTP status code.
 
-# Check if the log file exists
-if [ ! -f "$1" ]; then
-    echo "Error: Log file '$1' not found"
-    exit 1
-fi
-
-# Use awk to parse the log file and print the desired output
-awk '{print $1, $9}' "$1"
+awk '{print $1 " " $9}' apache-access.log
