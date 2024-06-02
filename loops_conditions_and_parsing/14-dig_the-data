@@ -1,33 +1,4 @@
 #!/usr/bin/env bash
-# Script to parse Apache log file, group visitors by IP and HTTP status code, and display the data
+# Dig the data
 
-# Check if the log file exists
-LOG_FILE="apache-access.log"
-
-if [[ ! -f "$LOG_FILE" ]]; then
-  echo "Log file not found!"
-  exit 1
-fi
-
-# Check if the log file is empty
-if [[ ! -s "$LOG_FILE" ]]; then
-  echo "Log file is empty!"
-  exit 0
-fi
-
-# Use awk to extract, validate, count, and sort IP and HTTP status code occurrences
-awk '
-{
-  ip = $1
-  code = $9
-  if (ip ~ /^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$/ && code ~ /^[0-9]{3}$/) {
-    count[ip " " code]++
-  }
-}
-END {
-  for (key in count) {
-    print count[key], key
-  }
-}
-' "$LOG_FILE" | sort -nr
-
+awk '{print $1,$9}' apache-access.log | sort | uniq -c | sort -r
